@@ -16,7 +16,7 @@ Module 1 deletes the Ollama wiring; Module 2 deletes the textarea; Module 6 drop
 
 ## Run
 
-From this folder, with the shared venv at the master repo root already created and dependencies installed (see the master `README.md`'s Quick Start):
+From this folder, with the shared venv at the repo root already created and dependencies installed (see the cohort `README.md`):
 
 ```bash
 # macOS / Linux:
@@ -36,7 +36,7 @@ uvicorn app.main:app --reload
 
 ## Verify
 
-The host environment (Postgres running, Ollama running, model pulled, table present) is what matters in Module 0. From this folder OR from the master repo root, run:
+The host environment (Postgres running, Ollama running, model pulled, table present) is what matters in Module 0. From this folder OR from the repo root, run:
 
 ```bash
 ./scripts/verify_setup.sh         # macOS / Linux

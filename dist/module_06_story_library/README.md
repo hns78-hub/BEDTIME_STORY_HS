@@ -20,8 +20,7 @@ cp .env.example .env              # if you don't already have one in this folder
 Copy-Item .env.example .env
 
 # One-time migration: DROP interactions, CREATE stories. Requires $DATABASE_URL
-# exported in your shell — not just present in .env. If you set it persistently
-# per the master README's Quick Start, you're already covered. Otherwise:
+# exported in your shell — not just present in .env. If $DATABASE_URL isn't set:
 #     export DATABASE_URL=postgresql://postgres:postgres@localhost:5432/llm_question_log
 # Symptom if missing: `psql: ... FATAL: database "<your-username>" does not exist`.
 psql "$DATABASE_URL" -f sql/002_create_stories.sql
