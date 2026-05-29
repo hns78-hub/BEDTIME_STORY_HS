@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lullaby &amp; Lore | Bedtime Story Generator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Literata:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#c6c0ff",
+                    "surface-container-highest": "#e7defb",
+                    "error": "#ba1a1a",
+                    "background": "#fdf7ff",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#41369d",
+                    "surface-dim": "#ded6f3",
+                    "primary-fixed-dim": "#c6c0ff",
+                    "surface-container-high": "#ece4ff",
+                    "on-surface-variant": "#474552",
+                    "on-secondary-container": "#2b5e80",
+                    "on-secondary-fixed": "#001e2f",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f7f1ff",
+                    "surface-tint": "#5950b6",
+                    "on-primary-container": "#32258d",
+                    "primary-fixed": "#e4dfff",
+                    "inverse-on-surface": "#f5eeff",
+                    "on-tertiary-fixed": "#1c1c17",
+                    "inverse-surface": "#322d43",
+                    "on-background": "#1d192d",
+                    "secondary-fixed-dim": "#9bccf3",
+                    "on-secondary-fixed-variant": "#104b6c",
+                    "outline-variant": "#c8c4d4",
+                    "primary": "#5950b6",
+                    "on-primary-fixed": "#150066",
+                    "on-tertiary-fixed-variant": "#484741",
+                    "surface-container": "#f2ebff",
+                    "surface-variant": "#e7defb",
+                    "tertiary-fixed-dim": "#c9c6be",
+                    "on-surface": "#1d192d",
+                    "tertiary-container": "#a3a199",
+                    "tertiary": "#605e58",
+                    "secondary-fixed": "#c9e6ff",
+                    "secondary-container": "#a6d7fe",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#e6e2d9",
+                    "surface": "#fdf7ff",
+                    "secondary": "#306385",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#fdf7ff",
+                    "on-tertiary-container": "#393832",
+                    "primary-container": "#9d94ff",
+                    "outline": "#787583"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-gap-md": "24px",
+                    "container-padding-desktop": "40px",
+                    "container-padding-mobile": "20px",
+                    "stack-gap-sm": "12px",
+                    "base": "8px",
+                    "stack-gap-lg": "48px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Literata"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Literata"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["20px", {"lineHeight": "32px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["26px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["17px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .story-shadow {
+            box-shadow: 0 10px 40px -10px rgba(157, 148, 255, 0.15);
+        }
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24 font-label-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding-mobile py-4 bg-background dark:bg-background">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-container">Lullaby &amp; Lore</h1>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant dark:text-on-surface-variant hover:opacity-80 transition-opacity" data-icon="dark_mode">dark_mode</button>
+</header>
+<main class="pt-20 px-container-padding-mobile max-w-4xl mx-auto space-y-stack-gap-md">
+<!-- Hero & Form -->
+<section class="space-y-stack-gap-sm">
+<div class="py-4">
+<p class="text-body-md font-body-md text-on-surface-variant">Tell us about the story you'd like to read tonight.</p>
+</div>
+<div class="glass-panel p-6 rounded-xl story-shadow space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="text-label-sm font-label-sm text-primary uppercase tracking-wider ml-1">Child's Name</label>
+<input class="w-full bg-surface-container-low border-outline-variant rounded-lg focus:ring-primary focus:border-primary px-4 py-3 text-body-md font-body-md text-on-surface" placeholder="KIAAN" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-label-sm font-label-sm text-primary uppercase tracking-wider ml-1">Characters</label>
+<input class="w-full bg-surface-container-low border-outline-variant rounded-lg focus:ring-primary focus:border-primary px-4 py-3 text-body-md font-body-md text-on-surface" placeholder="FOX" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-label-sm font-label-sm text-primary uppercase tracking-wider ml-1">Setting</label>
+<input class="w-full bg-surface-container-low border-outline-variant rounded-lg focus:ring-primary focus:border-primary px-4 py-3 text-body-md font-body-md text-on-surface" placeholder="an enchanted forest" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-label-sm font-label-sm text-primary uppercase tracking-wider ml-1">Plot</label>
+<input class="w-full bg-surface-container-low border-outline-variant rounded-lg focus:ring-primary focus:border-primary px-4 py-3 text-body-md font-body-md text-on-surface" placeholder="looking for Moon" type="text"/>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-full font-headline-md text-headline-md flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined" data-icon="magic_button">magic_button</span>
+                    Generate story
+                </button>
+</div>
+</section>
+<!-- Story Reading Area -->
+<section class="relative" id="reader">
+<!-- Decorative Illustration -->
+<div class="absolute -top-12 -right-4 w-24 h-24 floating-element opacity-40 z-0 pointer-events-none">
+<img alt="Moon" data-alt="A gentle, anthropomorphic crescent moon with a sleepy, smiling face, wearing a tiny nightcap. The style is a minimalist, flat digital illustration with soft pastel lavender and cream colors, glowing with a soft ethereal light against the breathable whitespace of the app background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPze44DXjZdTufx2hKSfVjZ2qhCIy34v1geWmf1ubBgXaqOXuzYz4Kt8Ub3QGDkyGvvE2VdcO6x9pYadfr1ptggqc8hnFPsvzQyval1vQlr4qWA0KAZMHXGPWBlcn3pQMOZ4DSk7Ba-4XA8FJSAj_Td87g7IIuFpnfe5koy5L4WU1XRwljfvVWLZJir6l22EsMegq7PS_d9tgBlpN5jVyx8THKddrJne2rkgDLRNhSLQAkLPUE6ZOAI9UJi11UrJS458VyqFNnaxs"/>
+</div>
+<div class="bg-surface-container-lowest rounded-[1.5rem] p-8 md:p-12 story-shadow border border-surface-container border-opacity-50 relative z-10">
+<article class="prose prose-slate max-w-none">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-primary mb-8 text-center md:text-headline-lg md:font-headline-lg">Flicker's Night Journey</h2>
+<div class="space-y-6 text-body-md font-body-md text-on-surface leading-relaxed">
+<p>Kiaan, in the heart of an enchanted forest, lived a little fox named Flicker. Flicker had fur as soft as dandelion fluff and eyes that sparkled like dewdrops in the morning sun. Tonight, Flicker was looking for the Moon. He wanted to show her the shiny pebble he had found by the whispering stream.</p>
+<div class="my-8 flex justify-center">
+<img alt="Flicker the Fox" class="rounded-2xl" data-alt="A whimsical digital illustration of a small, fluffy orange fox with oversized expressive eyes sitting in a bioluminescent forest. The trees have leaves that glow with a faint violet light, and tiny magical particles float in the air. The overall atmosphere is serene, nurturing, and nocturnal, using a high-end storybook aesthetic with soft focus backgrounds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhK7goZ9fBmpMec-rZuMu9VO2ZGL3fK-a7CElbYu8IfsnLvhzmr0XDBe3hIvMWNrVWjTyyZzDS-RNMNErh58PgFXp6o38xhZloo-_geNBYu0raEp14rNH5ROUyv6PbpbStwt3ne-ZV1qVJzW2FLuJT2ZqKaNEibQcR6M2iodr-aL2b6SagBymAvdPijFuaUSNq8t9JtLWGtTHdibORoIGdD-UvM6ALrUZMxrE7HDc6FpRMv4fLDORSDZ_SgzNzmb69VF7-xbtVQZQ"/>
+</div>
+<p>The forest was bathed in a gentle, silvery light. Tall trees with leaves like velvet reached up towards the sky, and tiny flowers glowed with a soft, inner luminescence. Flicker padded along a mossy path, his nose twitching, catching the sweet scent of honeysuckle. He listened for the gentle hoot of an owl, but all was quiet and peaceful.</p>
+<p>He peeked through the rustling branches of an ancient oak. "Moon?" he whispered softly. The leaves seemed to sigh in response. He saw a family of sleepy hedgehogs nestled together, their little snouts tucked under prickly coats. They were already dreaming sweet dreams.</p>
+<p>Suddenly, Flicker looked up. Through a clearing in the leaves, the most beautiful, round Moon was peeking out. It was as bright and cheerful as a lantern in the night sky. Flicker held up his shiny pebble, and the Moon reflected its light right back at him, like a silent, sparkling "hello."</p>
+</div>
+</article>
+<!-- Floating Star Motif -->
+<div class="absolute bottom-6 left-6 opacity-20">
+<span class="material-symbols-outlined text-primary scale-150" data-icon="star">star</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (The Anchor) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 backdrop-blur-md bg-surface-container-low/80 dark:bg-inverse-surface/80 rounded-t-xl shadow-lg">
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="magic_button">magic_button</span>
+<span class="text-label-sm font-label-sm">Create</span>
+</a>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-variant/50 transition-all" onclick="toggleDrawer()">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="text-label-sm font-label-sm">Library</span>
+</button>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-variant/50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-sm font-label-sm">Settings</span>
+</a>
+</nav>
+<!-- NavigationDrawer (History) -->
+<div class="fixed inset-y-0 right-0 z-[60] w-80 bg-surface-container-high translate-x-full transition-transform duration-300 ease-in-out shadow-xl flex flex-col p-6 overflow-y-auto" id="historyDrawer">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-headline-md font-headline-md text-primary">Past Adventures</h3>
+<button class="material-symbols-outlined" data-icon="close" onclick="toggleDrawer()">close</button>
+</div>
+<div class="space-y-4">
+<div class="bg-primary-container text-on-primary-container p-4 rounded-xl font-bold border-l-4 border-primary shadow-sm active:scale-95 transition-transform cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<div>
+<p class="text-label-md">looking for Moon</p>
+<p class="text-label-sm font-normal opacity-70">2026-05-28 12:09:09</p>
+</div>
+</div>
+</div>
+<div class="text-on-surface-variant hover:bg-surface-variant p-4 rounded-xl transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined group-hover:text-primary" data-icon="auto_awesome">auto_awesome</span>
+<div>
+<p class="text-label-md">LOOKING FOR GUANDAN CAT</p>
+<p class="text-label-sm opacity-60">2026-05-28 05:35:08</p>
+</div>
+</div>
+</div>
+<div class="text-on-surface-variant hover:bg-surface-variant p-4 rounded-xl transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined group-hover:text-primary" data-icon="cloud">cloud</span>
+<div>
+<p class="text-label-md">Cloud Kingdom</p>
+<p class="text-label-sm opacity-60">2026-05-27 20:15:22</p>
+</div>
+</div>
+</div>
+<div class="text-on-surface-variant hover:bg-surface-variant p-4 rounded-xl transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined group-hover:text-primary" data-icon="nights_stay">nights_stay</span>
+<div>
+<p class="text-label-md">Moonlight Meadow</p>
+<p class="text-label-sm opacity-60">2026-05-26 19:42:10</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-8">
+<img alt="Magic" data-alt="A delicate cluster of golden shimmering stars and a faint trail of cosmic dust floating against a soft cream-colored background. The style is modern whimsical, using soft edges and glow effects to evoke a dreamlike state, perfectly matching the gentle nurturing brand identity of Lullaby &amp; Lore." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9qr-uhDkDNgLM6WCXDo1bJ2qzKBfI8PR-agpRZByA7KZVLcErSgpY9x6G9GJOCKDSP-zN69wnU8uR__8D2qmxHX3ENrnrpVjHzx54yfR1B_AqccaoyKeRsiOb3xg4PtHCICBoCBDOKm9G89NoqeOzEDCKROdL_nOa-y3sf2JeLxZdpkgDRZWBPFr-jul0i-v8yXIwX3cddeT7hDZK6GE28Ym0jOgSTg_nOvJOLTrMnMYpQp3Uy_3BCPtlHRne2ZX1gLzPKsS1xhk"/>
+</div>
+</div>
+<!-- Backdrop for Drawer -->
+<div class="fixed inset-0 bg-black/20 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity duration-300" id="drawerOverlay" onclick="toggleDrawer()"></div>
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('historyDrawer');
+            const overlay = document.getElementById('drawerOverlay');
+            const isOpen = !drawer.classList.contains('translate-x-full');
+            
+            if (isOpen) {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+                overlay.classList.remove('opacity-100');
+                document.body.style.overflow = 'auto';
+            } else {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.add('opacity-100'), 10);
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Night mode toggle effect
+        const toggleBtn = document.querySelector('[data-icon="dark_mode"]');
+        let isDarkMode = false;
+        toggleBtn.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                document.body.classList.add('bg-[#151321]');
+                document.body.classList.add('dark');
+                toggleBtn.textContent = 'light_mode';
+            } else {
+                document.body.classList.remove('bg-[#151321]');
+                document.body.classList.remove('dark');
+                toggleBtn.textContent = 'dark_mode';
+            }
+        });
+    </script>
+</body></html>
